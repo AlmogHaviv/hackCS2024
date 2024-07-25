@@ -13,8 +13,8 @@ function Root(props) {
           display: 'grid',
           gridTemplateColumns: {
             xs: '1fr',
-            sm: 'minmax(64px, 200px) minmax(450px, 1fr)',
-            md: 'minmax(160px, 300px) minmax(300px, 1fr)',
+            sm: 'auto 1fr', // Changed from fixed width to auto
+            md: 'auto 1fr', // Changed from fixed width to auto
           },
           gridTemplateRows: '64px 1fr',
           minHeight: '100vh',
@@ -90,6 +90,10 @@ function SidePane(props) {
             xs: 'none',
             md: 'initial',
           },
+          width: { md: '200px' }, // Set a fixed width for medium screens and up
+          maxWidth: '250px', // Maximum width
+          flexShrink: 0, // Prevent the sidebar from shrinking
+          transition: 'width 0.3s', // Smooth transition for width changes
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
       ]}

@@ -9,21 +9,28 @@
   "records": [
     {
       "missionId": "1",
-      "missionName": "Operation Alpha",
+      "missionName": "Collect the Crops",
       "status": "Completed",
       "startDate": "2024-01-01",
       "endDate": "2024-01-15"
     },
     {
       "missionId": "2",
-      "missionName": "Project Beta",
+      "missionName": "Clean the Vegetables",
       "status": "In Progress",
       "startDate": "2024-02-01",
       "endDate": null
     },
     {
       "missionId": "3",
-      "missionName": "Project Gamma",
+      "missionName": "Water the Plants",
+      "status": "Posponed",
+      "startDate": "2024-02-01",
+      "endDate": null
+    },
+    {
+      "missionId": "4",
+      "missionName": "Answer the Phones",
       "status": "In Progress",
       "startDate": "2024-02-01",
       "endDate": null
