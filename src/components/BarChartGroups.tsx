@@ -22,7 +22,7 @@ export default function BarChartGroups() {
             {data: data.BarChartGroups.AmountRegistered, label: 'AmountRegistered'},
             {data: data.BarChartGroups.AmountMissing, label: 'AmountMissing'}
           ]}
-          width={600}
+          width={500}
           height={350}
           barLabel="value"
         />

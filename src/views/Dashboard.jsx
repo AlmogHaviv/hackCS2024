@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ChartContainer from '../components/ChartContainer';
 import BarChartGroups from '../components/BarChartGroups';
+import PieChartExample from '../components/PieChart';
 import Table from '../components/Table'; // Assuming you have a Table component
-import { Typography } from '@mui/joy';
+import { Box, Typography } from '@mui/joy';
 import missionData from '../data/missionData.json'; // Import your JSON data
 
 export default function Dashboard() {
@@ -25,14 +26,20 @@ export default function Dashboard() {
       <Typography level="h1" sx={{ marginBottom: '1rem' }}>
         Overview
       </Typography>
-      
-      <ChartContainer title="Mission Status">
-        <BarChartGroups />
-      </ChartContainer>
 
       <ChartContainer title="Mission Data">
         <Table cols={cols} rows={records} size='large'/>
       </ChartContainer>
+      <Box sx={{display: 'flex'}}>
+        <ChartContainer title="Mission Status">
+          <BarChartGroups size='small' />
+        </ChartContainer>
+        
+        <ChartContainer title="Mission Status">
+          <PieChartExample />
+        </ChartContainer>
+      </Box>
+      
     </div>
   );
 }

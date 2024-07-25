@@ -13,8 +13,8 @@ function Root(props) {
           display: 'grid',
           gridTemplateColumns: {
             xs: '1fr',
-            sm: 'minmax(50px, 150px) 1fr',
-            md: 'minmax(100px, 200px) 1fr',
+            sm: 'minmax(64px, 200px) minmax(450px, 1fr)',
+            md: 'minmax(160px, 300px) minmax(300px, 1fr)',
           },
           gridTemplateRows: '64px 1fr',
           minHeight: '100vh',
@@ -69,7 +69,6 @@ function SideNav(props) {
             xs: 'none',
             sm: 'initial',
           },
-          gridColumn: '1',
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
       ]}
@@ -91,7 +90,6 @@ function SidePane(props) {
             xs: 'none',
             md: 'initial',
           },
-          gridColumn: '1',
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
       ]}
@@ -106,15 +104,12 @@ function Main(props) {
       className="Main"
       {...props}
       sx={[
-        {
-          p: 2,
-          display: 'flex',
-          flexDirection: 'row',
-          gap: 2,
-          flexWrap: 'wrap',
-        },
-        ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
-      ]}
+        { 
+        p: 2 ,
+        display: 'grid',
+
+      },
+       ...(Array.isArray(props.sx) ? props.sx : [props.sx])]}
     />
   );
 }

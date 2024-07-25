@@ -10,6 +10,14 @@ export default function PieChartExample() {
         }]}
           width={500}
           height={320}
+          slotProps={{
+            legend: {
+                direction: 'column',
+                position: { vertical: 'middle', horizontal: 'left' },
+                padding: 0,
+            },
+        }}
+        margin={{ left: 100 }} // Adjust this value as needed
         />
     );
 }
