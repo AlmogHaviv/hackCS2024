@@ -7,44 +7,44 @@ import ActionModal from "../components/ActionModal";
 /**
  * Fake data
  */
-const blogsData = [
+const volData = [
   {
     id: "001",
-    title: "Thinking in React",
-    href: "https://react.dev/learn/thinking-in-react",
-    description: "Getting familiar with React concepts",
-    category: "dev",
-    image: "https://picsum.photos/200?random=1",
+    title: "Haim Cohen",
+    href: "+972-50-4538779",
+    description: "From Bat Hefer proffesional in picking and sorting. +972-50-4538779",
+    category: "Picking, Sorting",
+    image: "https://media.licdn.com/dms/image/D4E03AQERYdcFWl4g3g/profile-displayphoto-shrink_400_400/0/1718245606632?e=1727308800&v=beta&t=kbmqL27kTQWjhJFG-6-PGuG_H-Wg-xEjThQhw4N7OLY",
     review: 3
   }, {
     id: "002",
-    title: "React App Starter",
+    title: "Sara Moshe",
     href: "https://github.com/liadbe-genesys/react-app-starter",
-    description: "Hassle-free boilerplate to win the hackathon ",
-    category: "dev",
-    image: "https://picsum.photos/200?random=2",
+    description: "From Yavne proffesional in picking. +972-54-1246785",
+    category: "Picking",
+    image: "https://media.licdn.com/dms/image/D4D03AQG_pyZRhnNtDw/profile-displayphoto-shrink_400_400/0/1719487499544?e=1727308800&v=beta&t=bGqTARx-sD4OKY8eof7nYoueEXFKw64Fni4w-8gajRA",
     review: 3
   }, {
     id: "003",
-    title: "Clone a Github Repository",
+    title: "Yaakov Shabtai",
     href: "https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository",
-    description: "Get the files to your laptop",
-    category: "dev",
-    image: "https://picsum.photos/200?random=3",
+    description: "From Tel Aviv proffesional in Marketing and Management. +972-54-4367546",
+    category: "Marketing",
+    image: "https://media.licdn.com/dms/image/C4D03AQHqkm3d25F47w/profile-displayphoto-shrink_400_400/0/1643043861813?e=1727308800&v=beta&t=jQKSDTiEVX9sR7gKMOynbZsMT43scQHSmazJoW3uYho",
     review: 3
   }, {
     id: "004",
-    title: "Bike Map Tel-Aviv",
+    title: "Rotem Gabso",
     href: "https://experience.arcgis.com/experience/0b4adbaac0b84c21af90f4ee4a397fe6",
-    description: "No more guessing bus ETAs",
-    category: "leisure",
-    image: "https://picsum.photos/200?random=4",
+    description: "From Eilat track driving licence . +972-52-1267589",
+    category: "Transportation, track",
+    image: "https://media.licdn.com/dms/image/D4E03AQE-WnTX6iGDOg/profile-displayphoto-shrink_400_400/0/1719768989280?e=1727308800&v=beta&t=0LFg5E6sfNyHh063S0G05wPjjHlkFmgLM1tkX496BOg",
     review: 3
   }
 ]
 
 // Init data for the state
-const defaultPost = {
+const defaultVol = {
   id: '',
   title: '',
   href: '',
@@ -55,31 +55,31 @@ const defaultPost = {
 }
 
 /**
- * BlogPosts view is basically a view container for <PostCard /> components.
+ * VolItems view is basically a view container for <PostCard /> components.
  */
-export default function BlogPosts() {
-  const [blogPosts, setBlogPosts] = useState(blogsData);
-  const [newPost, setNewPost] = useState(defaultPost);
+export default function VolItems() {
+  const [VolItems, setVolItems] = useState(volData);
+  const [NewVol, setNewVol] = useState(defaultVol);
   
   // Title we send to the modal
-  const title = "Add New Post";
+  const title = "Add New Volunteer";
 
   // save function that we send to the modal
   const onSave = () => {
-    const post = {...newPost};
-    const blogPostsArr = [...blogPosts];
+    const post = {...NewVol};
+    const VolItemsArr = [...VolItems];
     post.id = Math.random();
-    blogPostsArr.push(post);
+    VolItemsArr.push(post);
 
     // updating the states
-    setBlogPosts(blogPostsArr)
-    setNewPost(defaultPost);
+    setVolItems(VolItemsArr)
+    setNewVol(defaultVol);
   }
 
   return (
     <>
       <Typography level="h1" sx={{ marginBottom: '1rem' }}>
-        Blog Posts
+        Volunteers
       </Typography>
       <Grid direction="row" justifyContent="space-between" container>
         <Grid sm={12} md={8}>
@@ -87,16 +87,16 @@ export default function BlogPosts() {
             direction="column" 
             spacing="1rem"
           >
-            {blogPosts.map(blog => 
+            {VolItems.map(blog => 
               <PostCard 
                 key={blog.id} 
                 blog={blog}
                 removePost={(id) => {
-                  let clonedBlogPosts = blogPosts.slice();
-                  const blogIdToRemove = blogPosts.findIndex(blog => id === blog.id);
+                  let clonedVolItems = VolItems.slice();
+                  const blogIdToRemove = VolItems.findIndex(blog => id === blog.id);
                   if (blogIdToRemove > -1) {
-                    clonedBlogPosts.splice(blogIdToRemove, 1);
-                    setBlogPosts(clonedBlogPosts);
+                    clonedVolItems.splice(blogIdToRemove, 1);
+                    setVolItems(clonedVolItems);
                   }
                 }} 
               />
@@ -107,10 +107,10 @@ export default function BlogPosts() {
           {/** Using the modal */}
           <ActionModal title={title} onSave={onSave}>
             <div style={{display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '10px'}}>
-              <Input placeholder="Title" variant="outlined" onChange={(e) => setNewPost({...newPost, title: e.target.value})} />
-              <Input placeholder="Href" variant="outlined" onChange={(e) => setNewPost({...newPost, href: e.target.value})}/>
-              <Input placeholder="Description" variant="outlined" onChange={(e) => setNewPost({...newPost, description: e.target.value})}/>
-              <Input placeholder="Category" variant="outlined" onChange={(e) => setNewPost({...newPost, category: e.target.value})}/>
+              <Input placeholder="Title" variant="outlined" onChange={(e) => setNewVol({...NewVol, title: e.target.value})} />
+              <Input placeholder="Href" variant="outlined" onChange={(e) => setNewVol({...NewVol, href: e.target.value})}/>
+              <Input placeholder="Description" variant="outlined" onChange={(e) => setNewVol({...NewVol, description: e.target.value})}/>
+              <Input placeholder="Category" variant="outlined" onChange={(e) => setNewVol({...NewVol, category: e.target.value})}/>
             </div>
           </ActionModal>
         </Grid>
