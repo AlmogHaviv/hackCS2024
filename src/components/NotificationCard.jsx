@@ -9,13 +9,13 @@ export default function NotificationCard({ notification, onToggleRead }) {
         backgroundColor: notification.read ? 'lightgray' : 'white',
         border: '1px solid',
         borderColor: notification.read ? 'gray' : 'black',
-        width: '1000%',  // Take full width of the container
-        maxWidth: '1000px',  // Set a max-width to control card width
+        width: '100%',  // Take full width of the container
+        maxWidth: '700px',  // Set a max-width to control card width
         margin: '0 auto',  // Center the card horizontally
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',  // Center content horizontally
-        textAlign: 'center',   // Center text within the card
+        alignItems: 'flex-start',  // Align items to the start instead of center
+        textAlign: 'left',   // Align text to the left within the card
       }}
     >
       <Typography 

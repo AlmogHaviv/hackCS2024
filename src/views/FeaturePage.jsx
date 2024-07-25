@@ -7,28 +7,28 @@ import NotificationCard from "../components/NotificationCard";
 const initialNotificationsData = [
   {
     id: "001",
-    message: "New volunteer! Haim Cohen registered as a volunteer.",
+    message: "You have a new message from John",
     category: "messages",
     timestamp: "2024-07-25T12:00:00Z",
     read: false,
   },
   {
     id: "002",
-    message: "The mission Picking Oranges is completed.",
+    message: "Your order has been shipped",
     category: "orders",
     timestamp: "2024-07-24T08:30:00Z",
     read: false,
   },
   {
     id: "003",
-    message: "New volunteer! Sara registered as a volunteer.",
+    message: "New comment on your post",
     category: "comments",
     timestamp: "2024-07-23T14:45:00Z",
     read: false,
   },
   {
     id: "004",
-    message: "The mission Running in the field Oranges is completed.",
+    message: "System update available",
     category: "system",
     timestamp: "2024-07-22T18:15:00Z",
     read: false,
@@ -51,8 +51,8 @@ export default function NotificationPage() {
       <Typography level="h1" sx={{ marginBottom: '1rem' }}>
         Notifications
       </Typography>
-      <Grid container spacing={2} justifyContent="center"> {/* Center the Grid items */}
-        <Grid item xs={12} md={8} lg={6}> {/* Adjust size for wider display */}
+      <Grid container spacing={2} justifyContent="flex-start"> {/* Align items to the left */}
+        <Grid item xs={12} md={8} lg={6}> {/* Adjust the Grid item sizes */}
           <Stack direction="column" spacing="1rem">
             {notifications.map(notification => 
               <NotificationCard 
