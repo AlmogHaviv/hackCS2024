@@ -1,5 +1,4 @@
-
-import * as React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AspectRatio from '@mui/joy/AspectRatio';
 import Card from '@mui/joy/Card';
@@ -11,17 +10,29 @@ import Stack from '@mui/joy/Stack';
 import Typography from '@mui/joy/Typography';
 import Star from '@mui/icons-material/Star';
 import IconButton from '@mui/joy/IconButton';
-
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import Delete from '@mui/icons-material/Delete';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
 PostCard.propTypes = {
-  blog: PropTypes.object
+  blog: PropTypes.object.isRequired,
+  removePost: PropTypes.func.isRequired,
 };
 
-export default function PostCard(props) {
-  const { blog: { id, title, href, description, category, image, review }, removePost } = props;
-  const [isLiked, setIsLiked] = React.useState(false);
+export default function PostCard({ blog: { id, title, href, description, category, image, review }, removePost }) {
+  const [isLiked, setIsLiked] = useState(false);
+  const [uploadedImage, setUploadedImage] = useState(image);
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUploadedImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <Card
@@ -54,7 +65,7 @@ export default function PostCard(props) {
             '--AspectRatio-maxHeight': { xs: '160px', sm: '9999px' },
           }}
         >
-          <img src={`${image}`} />
+          <img src={uploadedImage} alt="Post" />
           <Stack
             alignItems="center"
             direction="row"
@@ -76,6 +87,29 @@ export default function PostCard(props) {
             </IconButton>
           </Stack>
         </AspectRatio>
+        <input
+          accept="image/*"
+          type="file"
+          id="upload-photo"
+          style={{ display: 'none' }}
+          onChange={handleFileUpload}
+        />
+        <label htmlFor="upload-photo">
+          <IconButton
+            component="span"
+            variant="plain"
+            size="sm"
+            color="primary"
+            sx={{
+              position: 'absolute',
+              bottom: 8,
+              right: 8,
+              borderRadius: '50%',
+            }}
+          >
+            <PhotoCamera />
+          </IconButton>
+        </label>
       </CardOverflow>
 
       <CardContent>
@@ -86,8 +120,7 @@ export default function PostCard(props) {
           alignItems="flex-start"
         >
           <div>
-            <Chip variant='outlined'>{category}</Chip>
-            
+            <Chip variant="outlined">{category}</Chip>
             <Typography level="title-md">
               <Link
                 underline="none"
@@ -98,12 +131,8 @@ export default function PostCard(props) {
                 {title}
               </Link>
             </Typography>
-
-            <Typography level="title-sm">
-              {description}
-            </Typography>
+            <Typography level="title-sm">{description}</Typography>
           </div>
-
           <Stack direction="row">
             <IconButton
               variant="plain"
@@ -117,13 +146,11 @@ export default function PostCard(props) {
             >
               <FavoriteRoundedIcon />
             </IconButton>
-
-            <Divider orientation='vertical' />
-
+            <Divider orientation="vertical" />
             <IconButton
               variant="plain"
               size="sm"
-              color={isLiked ? 'danger' : 'neutral'}
+              color="neutral"
               onClick={() => removePost(id)}
               sx={{
                 display: { xs: 'none', sm: 'flex' },
@@ -134,7 +161,6 @@ export default function PostCard(props) {
             </IconButton>
           </Stack>
         </Stack>
-
         <Stack direction="row" sx={{ mt: 'auto' }}>
           <Typography
             level="title-sm"

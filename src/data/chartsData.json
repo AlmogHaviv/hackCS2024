@@ -31,10 +31,10 @@
 
     },
     "pieChart": {
-        "works": [{"id": 1, "value": 0, "label": "Deliveries" },
-        {"id": 2, "value": 3, "label": "Cookers" },
-        {"id": 3, "value": 5, "label": "Packeres" },
-        {"id": 4, "value": 20, "label": "Runners" }]
+        "works": [{"id": 1, "value": 0, "label": "Deliveries", "color": "#ff9999"},
+        {"id": 2, "value": 3, "label": "Cookers","color": "#66b3ff"},
+        {"id": 3, "value": 5, "label": "Packeres", "color": "#99ff99"},
+        {"id": 4, "value": 20, "label": "Runners", "color": "#ffcc99"}]
     },
     "ScatterChart": {
         "Group1": [{"x": 2.2, "y": 10.1, "id": 1}, {"x": 1.8, "y": 7.7, "id": 2}, {"x": 2.9, "y": 5.0, "id": 3}, {"x": 7.6, "y": 9.4, "id": 4}, {"x": 13.0, "y": 10.3, "id": 5}, {"x": 1.9, "y": 4.6, "id": 6}],

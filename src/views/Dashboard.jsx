@@ -20,7 +20,7 @@ export default function Dashboard() {
           floatingFilter: true,
           cellStyle: (params) => {
             if (params.value === "0") {
-              return { backgroundColor: '#d4edda', color: '#333' }; // Light grey with dark text
+              return { backgroundColor: '#d4edda', color: '#333' }; // Light green with dark text
             }
             if (params.value === "3") {
               return { backgroundColor: '#ffe5b4', color: '#333' }; // Light orange with dark text

@@ -1,29 +1,37 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/joy/Button';
 import Modal from '@mui/joy/Modal';
 import ModalClose from '@mui/joy/ModalClose';
 import Typography from '@mui/joy/Typography';
 import Sheet from '@mui/joy/Sheet';
+import { Input } from '@mui/joy';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
-/**
- * 
- * @param title - Modal title
- * @param onSave - Function we pass to the modal to execute when the user press save
- * @param children - reserved param. the data in the children param is dynamic, and can change. Read more about props.children in react 
- */
-export default function ActionModal({title, onSave, children}) {
+export default function ActionModal({ title, onSave, children }) {
   const [open, setOpen] = useState(false);
+  const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState('');
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(file);
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const onClickSave = () => {
-    // calling the onSave function we pass in the params
-    onSave();
-    // updating the state
+    // Pass the image data to onSave
+    onSave(image);
     setOpen(false);
-  }
+  };
 
   return (
     <React.Fragment>
-      {/** The button that open the modal. you can change the text of the button below */}
       <Button onClick={() => setOpen(true)}>
         Add New Post
       </Button>
@@ -38,7 +46,6 @@ export default function ActionModal({title, onSave, children}) {
         <Sheet
           variant="outlined"
           sx={{
-            // here you can change the modal styles
             maxWidth: 700,
             minWidth: 500,
             borderRadius: 'md',
@@ -56,20 +63,31 @@ export default function ActionModal({title, onSave, children}) {
             fontWeight="lg"
             mb={1}
           >
-            {/* modal title */}
             {title}
           </Typography>
 
-          {/** here you can add elements like inputs, dropdown, etc. */}
           {children}
 
-          {/** modal buttons */}
-          {onSave &&
-            <div style={{display: 'flex', justifyContent: 'flex-end', gap: '15px', marginTop: '20px'}}>
-              <Button variant="outlined" onClick={() => setOpen(false)}>Cancel</Button>
-              <Button onClick={onClickSave}>SAVE</Button>
-            </div>
-          }
+          <Input
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            sx={{ mb: 2 }}
+            startDecorator={<PhotoCamera />}
+          />
+
+          {imagePreview && (
+            <img
+              src={imagePreview}
+              alt="Preview"
+              style={{ width: '100%', maxHeight: 200, objectFit: 'cover', marginBottom: '15px' }}
+            />
+          )}
+
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '15px', marginTop: '20px' }}>
+            <Button variant="outlined" onClick={() => setOpen(false)}>Cancel</Button>
+            <Button onClick={onClickSave}>SAVE</Button>
+          </div>
         </Sheet>
       </Modal>
     </React.Fragment>

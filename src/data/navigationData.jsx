@@ -1,10 +1,10 @@
-import DataTable from "../views/DataTable";
+import Actions from "../views/Actions";
 import DashboardOutlined from '@mui/icons-material/DashboardOutlined';
-import TableChartOutlined from '@mui/icons-material/TableChartOutlined';
-import PagesOutlined from '@mui/icons-material/PagesOutlined';
+import PersonOutline from '@mui/icons-material/PersonOutline';
+import HomeOutlined from '@mui/icons-material/HomeOutlined';
 import CloudQueueOutlined from '@mui/icons-material/CloudQueueOutlined';
 import Dashboard from "../views/Dashboard";
-import BlogPosts from "../views/BlogPosts";
+import Volunteers from "../views/Volunteers";
 import FeaturePage from "../views/FeaturePage";
 
 export const navigationData = [
@@ -15,16 +15,16 @@ export const navigationData = [
     icon: <DashboardOutlined />
   },
   { 
-    displayName: 'Data Table', 
-    path: 'data-table', 
-    element: <DataTable />,
-    icon: <TableChartOutlined />
+    displayName: 'Actions', 
+    path: 'Actions', 
+    element: <Actions />,
+    icon: <HomeOutlined />
   },
   { 
-    displayName: 'Blog Posts', 
-    path: 'blog-posts', 
-    element: <BlogPosts />, 
-    icon: <PagesOutlined />
+    displayName: 'Volunteers', 
+    path: 'Volunteers', 
+    element: <Volunteers />, 
+    icon: <PersonOutline />
   },
   { 
     displayName: 'Notifications', 

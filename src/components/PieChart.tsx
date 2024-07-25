@@ -6,7 +6,10 @@ export default function PieChartExample() {
     return (
         <PieChart 
             series={[{
-                data: data.pieChart.works,
+                data: data.pieChart.works.map(item => ({
+                    ...item,
+                    fill: item.color
+                })),
                 innerRadius: 30,
                 outerRadius: 100,
                 paddingAngle: 2,

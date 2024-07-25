@@ -64,17 +64,17 @@ export default function VolItems() {
   // Title we send to the modal
   const title = "Add New Volunteer";
 
-  // save function that we send to the modal
-  const onSave = () => {
-    const post = {...NewVol};
-    const VolItemsArr = [...VolItems];
-    post.id = Math.random();
-    VolItemsArr.push(post);
+ // Updated onSave to handle the image
+ const onSave = (image) => {
+  const post = { ...NewVol, image: image ? URL.createObjectURL(image) : NewVol.image };
+  const VolItemsArr = [...VolItems];
+  post.id = Math.random();
+  VolItemsArr.push(post);
 
-    // updating the states
-    setVolItems(VolItemsArr)
-    setNewVol(defaultVol);
-  }
+  setVolItems(VolItemsArr);
+  setNewVol(defaultVol);
+};
+
 
   return (
     <>
@@ -108,7 +108,6 @@ export default function VolItems() {
           <ActionModal title={title} onSave={onSave}>
             <div style={{display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '10px'}}>
               <Input placeholder="Title" variant="outlined" onChange={(e) => setNewVol({...NewVol, title: e.target.value})} />
-              <Input placeholder="Href" variant="outlined" onChange={(e) => setNewVol({...NewVol, href: e.target.value})}/>
               <Input placeholder="Description" variant="outlined" onChange={(e) => setNewVol({...NewVol, description: e.target.value})}/>
               <Input placeholder="Category" variant="outlined" onChange={(e) => setNewVol({...NewVol, category: e.target.value})}/>
             </div>

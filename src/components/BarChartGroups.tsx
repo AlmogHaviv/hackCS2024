@@ -18,9 +18,9 @@ export default function BarChartGroups() {
         <BarChart 
           xAxis={[{scaleType: 'band', data: data.BarChartGroups.VolntueerType}]}
           series={[
-            {data: data.BarChartGroups.TotalNeeded, label: 'TotalNeeded'},
-            {data: data.BarChartGroups.AmountRegistered, label: 'AmountRegistered'},
-            {data: data.BarChartGroups.AmountMissing, label: 'AmountMissing'}
+            {data: data.BarChartGroups.TotalNeeded, label: 'TotalNeeded', color: '#ffe5b4'},
+            {data: data.BarChartGroups.AmountRegistered, label: 'AmountRegistered', color: '#d4edda'},
+            {data: data.BarChartGroups.AmountMissing, label: 'AmountMissing', color: '#ffcccc'}
           ]}
           width={500}
           height={350}
