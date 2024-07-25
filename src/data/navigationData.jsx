@@ -27,7 +27,7 @@ export const navigationData = [
     icon: <PagesOutlined />
   },
   { 
-    displayName: 'Messeges Queue', 
+    displayName: 'Notifications', 
     path: 'empty-page', 
     element: <FeaturePage />, 
     icon: <CloudQueueOutlined />
