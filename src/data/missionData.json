@@ -1,0 +1,25 @@
+{
+  "fields": [
+    { "id": "missionId" },
+    { "id": "missionName" },
+    { "id": "status" },
+    { "id": "startDate" },
+    { "id": "endDate" }
+  ],
+  "records": [
+    {
+      "missionId": "1",
+      "missionName": "Operation Alpha",
+      "status": "Completed",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-15"
+    },
+    {
+      "missionId": "2",
+      "missionName": "Project Beta",
+      "status": "In Progress",
+      "startDate": "2024-02-01",
+      "endDate": null
+    }
+  ]
+}

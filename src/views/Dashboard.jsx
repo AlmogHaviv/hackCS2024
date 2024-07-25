@@ -1,45 +1,38 @@
+import React, { useState, useEffect } from 'react';
 import ChartContainer from '../components/ChartContainer';
 import BarChartGroups from '../components/BarChartGroups';
-import BarChartStack from '../components/BarChartStack';
-import BarChartResponsive from '../components/BatChartResponsive';
-import PieChart from '../components/PieChart';
-import LineChart from '../components/LineChart';
-import ScatterChart from '../components/ScatterChart';
+import Table from '../components/Table'; // Assuming you have a Table component
 import { Typography } from '@mui/joy';
+import missionData from '../data/missionData.json'; // Import your JSON data
 
-/**
- * Dashbord is the currently presenting many different chart components, 
- * each is wrapped with <ChartContainer /> component.
- */
 export default function Dashboard() {
+  const [cols, setCols] = useState([]);
+  const [records, setRecords] = useState([]);
+
+  useEffect(() => {
+    // Process the data from the JSON file
+    const { fields, records } = missionData;
+    setCols(fields.map((col, i) => ({
+      field: col.id,
+      filter: true, // Enable filtering for all columns
+      floatingFilter: true // Enable floating filter for all columns
+    })));
+    setRecords(records);
+  }, []);
+
   return (
     <div>
-        <Typography level="h1" sx={{ marginBottom: '1rem' }}>
-          Overview
-        </Typography>
-        <ChartContainer title="Bar Chart with Groups">
-          <BarChartGroups />
-        </ChartContainer>
+      <Typography level="h1" sx={{ marginBottom: '1rem' }}>
+        Overview
+      </Typography>
+      
+      <ChartContainer title="Mission Status">
+        <BarChartGroups />
+      </ChartContainer>
 
-        <ChartContainer title="Bar Chart with Stacks">
-          <BarChartStack />
-        </ChartContainer>
-
-        <ChartContainer title="Responsive Bar Chart">
-          <BarChartResponsive />
-        </ChartContainer>
-
-        <ChartContainer title="Line Chart">
-          <LineChart />
-        </ChartContainer>
-
-        <ChartContainer title="Pie Chart">
-          <PieChart />
-        </ChartContainer>
-
-        <ChartContainer title="Scatter Chart">
-          <ScatterChart />
-        </ChartContainer>
+      <ChartContainer title="Mission Data">
+        <Table cols={cols} rows={records} size='large'/>
+      </ChartContainer>
     </div>
   );
 }

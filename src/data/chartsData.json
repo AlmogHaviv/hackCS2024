@@ -1,16 +1,16 @@
 {
     "barChartStack": {
-        "Cities": ["Jerusalem", "Tel Aviv", "Haifa", "Netanya", "Modi'in", "Rehovot", "Ariel", "Dimona", "Afula"],
+        "Cities": ["Volntueer 1", "Tel Aviv", "Haifa", "Netanya", "Modi'in", "Rehovot", "Ariel", "Dimona", "Afula"],
         "PopulationMale": [48000, 41000, 29000, 42000, 41000, 39000, 11000, 9000, 21000],
         "PopulationFemale": [53000, 30000, 26500, 50000, 47000, 30000, 10000, 11000, 13000],
         "PopulationOld": [49000, 48000, 20000, 41000, 46000, 31000, 13000, 9000, 20000],
         "PopulationYoung": [52000, 23000, 35500, 51000, 42000, 38000, 8000, 11000, 14000]
     },
     "BarChartGroups": {
-        "Cities": ["Jerusalem", "Tel Aviv", "Haifa", "Netanya", "Modi'in", "Rehovot", "Ariel", "Dimona", "Afula"],
-        "WaterExpense": [43, 42, 29, 31, 22, 21, 19, 30, 11],
-        "ElectricityExpense": [52, 41, 45, 38, 30, 32, 19, 22, 14, 17],
-        "InfrastructureExpense": [29, 39, 17, 27, 15, 26, 25, 12, 18]
+        "VolntueerType": ["Collectors", "Cleaner", "Desk Worker"],
+        "TotalNeeded": [20, 30, 4],
+        "AmountRegistered": [15, 10, 4],
+        "AmountMissing": [5, 20, 0]
     },
     "BarChartResponsive": {
         "Months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],

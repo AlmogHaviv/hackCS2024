@@ -24,6 +24,9 @@ import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
+// Import your logo
+import Logo from '../assets/meshek77.jpg'; // Adjust the path as needed
+
 import TeamNav from './Navigation';
 import { navigationData } from '../data/navigationData';
 
@@ -46,7 +49,7 @@ function ColorSchemeToggle() {
         size="sm"
         variant="plain"
         color="neutral"
-        sx={{ alignSelf: 'center' }}
+        sx={{ alignSelf: 'center', color: 'black' }}
         onClick={() => {
           if (mode === 'light') {
             setMode('dark');
@@ -69,8 +72,32 @@ export default function Header() {
         display: 'flex',
         flexGrow: 1,
         justifyContent: 'space-between',
+        backgroundColor: 'white',
+        color: 'black',
+        padding: '10px'
       }}
     >
+      {/* Logo section */}
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          flexShrink: 0,
+        }}
+      >
+        <IconButton
+          size="md"
+          sx={{
+            backgroundColor: 'transparent',
+            '&:hover': {
+              backgroundColor: 'transparent',
+            }
+          }}
+        >
+          <img src={Logo} alt="Logo" style={{ height: '40px' }} />
+        </IconButton>
+      </Box>
+
       <Stack
         direction="row"
         justifyContent="center"
@@ -85,6 +112,7 @@ export default function Header() {
           sx={{
             display: { xs: 'none', sm: 'inline-flex' },
             borderRadius: '50%',
+            color: 'black'
           }}
         >
           <LanguageRoundedIcon />
@@ -98,7 +126,7 @@ export default function Header() {
             component="a"
             href={nav.path}
             size="sm"
-            sx={{ alignSelf: 'center' }}
+            sx={{ alignSelf: 'center', color: 'black' }}
           >
             {nav.displayName}
           </Button>
@@ -116,7 +144,7 @@ export default function Header() {
           onClose={() => setOpen(false)}
         >
           <ModalClose />
-          <DialogTitle>Acme Co.</DialogTitle>
+          <DialogTitle sx={{ color: 'black' }}>Acme Co.</DialogTitle>
           <Box sx={{ px: 1 }}>
             <TeamNav />
           </Box>
@@ -154,6 +182,8 @@ export default function Header() {
               p: 1,
               gap: 1,
               '--ListItem-radius': 'var(--joy-radius-sm)',
+              backgroundColor: 'grey',
+              color: 'black'
             }}
           >
             <MenuItem>
@@ -165,32 +195,32 @@ export default function Header() {
               >
                 <Avatar />
                 <Box sx={{ ml: 1.5 }}>
-                  <Typography level="title-sm" textColor="text.primary">
-                    israel.is@genesys.com
+                  <Typography level="title-sm" textColor="black">
+                    haim.dan@gmail.com
                   </Typography>
-                  <Typography level="body-xs" textColor="text.tertiary">
-                    Israel Israeli
+                  <Typography level="body-xs" textColor="black">
+                    Haim Dan
                   </Typography>
                 </Box>
               </Box>
             </MenuItem>
          
-            <ListDivider />
+            <ListDivider sx={{ backgroundColor: 'black' }} />
          
             <MenuItem>
-              <HelpRoundedIcon />
-              Help
+              <HelpRoundedIcon sx={{ color: 'black' }} />
+              <Typography textColor="black">Help</Typography>
             </MenuItem>
             <MenuItem>
-              <SettingsRoundedIcon />
-              Settings
+              <SettingsRoundedIcon sx={{ color: 'black' }} />
+              <Typography textColor="black">Settings</Typography>
             </MenuItem>
 
-            <ListDivider />
+            <ListDivider sx={{ backgroundColor: 'black' }} />
 
             <MenuItem>
-              <LogoutRoundedIcon />
-              Log out
+              <LogoutRoundedIcon sx={{ color: 'black' }} />
+              <Typography textColor="black">Log out</Typography>
             </MenuItem>
           </Menu>
         </Dropdown>
