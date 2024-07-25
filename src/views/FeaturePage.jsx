@@ -7,16 +7,18 @@ import NotificationCard from "../components/NotificationCard";
 const initialNotificationsData = [
   {
     id: "001",
-    message: "You have a new message from John",
+    message: "You have an option to collab with Tom!",
     category: "messages",
-    timestamp: "2024-07-25T12:00:00Z",
+    timestamp: "2024-12-25T16:00:00Z",
+    content: "Food leftover from the volunteer event. Would you like to share it with your volunteers?",
     read: false,
   },
   {
     id: "002",
-    message: "Your order has been shipped",
+    message: "You have an option to collab with Tom!",
     category: "orders",
-    timestamp: "2024-07-24T08:30:00Z",
+    timestamp: "2024-12-24T18:00:00Z",
+    content: "You have the option to assist Tom by using your cars, which can help save costs.",
     read: false,
   },
   {

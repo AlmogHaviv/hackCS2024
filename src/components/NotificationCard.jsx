@@ -28,6 +28,12 @@ export default function NotificationCard({ notification, onToggleRead }) {
         level="body2" 
         sx={{ marginTop: '0.5rem' }}
       >
+        {notification.content}
+      </Typography>
+      <Typography 
+        level="body2" 
+        sx={{ marginTop: '0.5rem' }}
+      >
         {new Date(notification.timestamp).toLocaleString()}
       </Typography>
       <Button 

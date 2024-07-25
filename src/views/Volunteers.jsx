@@ -105,7 +105,7 @@ export default function VolItems() {
         </Grid>
         <Grid>
           {/** Using the modal */}
-          <ActionModal title={title} onSave={onSave}>
+          <ActionModal title={title} onSave={onSave} buttonText="Add Volunteer">
             <div style={{display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '10px'}}>
               <Input placeholder="Title" variant="outlined" onChange={(e) => setNewVol({...NewVol, title: e.target.value})} />
               <Input placeholder="Description" variant="outlined" onChange={(e) => setNewVol({...NewVol, description: e.target.value})}/>

@@ -7,7 +7,7 @@ import Sheet from '@mui/joy/Sheet';
 import { Input } from '@mui/joy';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
-export default function ActionModal({ title, onSave, children }) {
+export default function ActionModal({ title, onSave, children, buttonText }) {
   const [open, setOpen] = useState(false);
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState('');
@@ -33,7 +33,7 @@ export default function ActionModal({ title, onSave, children }) {
   return (
     <React.Fragment>
       <Button onClick={() => setOpen(true)}>
-        Add New Post
+        {buttonText}
       </Button>
 
       <Modal

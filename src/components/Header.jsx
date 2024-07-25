@@ -25,7 +25,7 @@ import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
 // Import your logo
-import Logo from '../assets/meshek77.jpg'; // Adjust the path as needed
+import Logo from '../assets/hahimLameshek.png'; // Adjust the path as needed
 
 import TeamNav from './Navigation';
 import { navigationData } from '../data/navigationData';
