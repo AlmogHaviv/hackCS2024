@@ -72,7 +72,7 @@ export default function Header() {
         display: 'flex',
         flexGrow: 1,
         justifyContent: 'space-between',
-        backgroundColor: 'white',
+        backgroundColor: 'white ',
         color: 'black',
         padding: '10px'
       }}

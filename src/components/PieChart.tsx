@@ -6,7 +6,7 @@ export default function PieChartExample() {
     return (
         <PieChart 
             series={[{
-                data: data.pieChart.Injuries,
+                data: data.pieChart.works,
                 innerRadius: 30,
                 outerRadius: 100,
                 paddingAngle: 2,

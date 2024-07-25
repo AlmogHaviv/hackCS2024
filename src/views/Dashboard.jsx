@@ -11,21 +11,35 @@ export default function Dashboard() {
   const [records, setRecords] = useState([]);
 
   useEffect(() => {
-    // Process the data from the JSON file
     const { fields, records } = missionData;
-    setCols(fields.map((col, i) => ({
-      field: col.id,
-      filter: true, // Enable filtering for all columns
-      floatingFilter: true // Enable floating filter for all columns
-    })));
+    setCols(fields.map((col) => {
+      if (col.id === 'amountLeftToAssigened') {
+        return {
+          field: col.id,
+          filter: true,
+          floatingFilter: true,
+          cellStyle: (params) => {
+            if (params.value === "0") {
+              return { backgroundColor: '#d4edda', color: '#333' }; // Light grey with dark text
+            }
+            if (params.value === "3") {
+              return { backgroundColor: '#ffe5b4', color: '#333' }; // Light orange with dark text
+            }
+            return { backgroundColor: '#ffcccc', color: '#333' }; // Light red with dark text
+          }
+        };
+      }
+      return {
+        field: col.id,
+        filter: true,
+        floatingFilter: true,
+      };
+    }));
     setRecords(records);
   }, []);
 
   return (
     <div>
-      <Typography level="h1" sx={{ marginBottom: '1rem' }}>
-        Overview
-      </Typography>
 
       <ChartContainer title="Mission Data">
         <Table cols={cols} rows={records} size='large'/>

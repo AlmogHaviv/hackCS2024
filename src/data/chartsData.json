@@ -7,10 +7,10 @@
         "PopulationYoung": [52000, 23000, 35500, 51000, 42000, 38000, 8000, 11000, 14000]
     },
     "BarChartGroups": {
-        "VolntueerType": ["Collectors", "Cleaner", "Desk Worker"],
-        "TotalNeeded": [20, 30, 4],
-        "AmountRegistered": [15, 10, 4],
-        "AmountMissing": [5, 20, 0]
+        "VolntueerType": ["Deliveries", "Cookers", "Packeres", "Runners"],
+        "TotalNeeded": [3, 15, 30, 20],
+        "AmountRegistered": [0, 3, 5, 20],
+        "AmountMissing": [3, 12, 25, 0]
     },
     "BarChartResponsive": {
         "Months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -31,10 +31,10 @@
 
     },
     "pieChart": {
-        "Injuries": [{"id": 1, "value": 21, "label": "Physical Trauma" },
-        {"id": 2, "value": 15, "label": "Heart Failure" },
-        {"id": 3, "value": 28, "label": "Blood Loss" },
-        {"id": 4, "value": 7, "label": "Respiratory Failure" }]
+        "works": [{"id": 1, "value": 0, "label": "Deliveries" },
+        {"id": 2, "value": 3, "label": "Cookers" },
+        {"id": 3, "value": 5, "label": "Packeres" },
+        {"id": 4, "value": 20, "label": "Runners" }]
     },
     "ScatterChart": {
         "Group1": [{"x": 2.2, "y": 10.1, "id": 1}, {"x": 1.8, "y": 7.7, "id": 2}, {"x": 2.9, "y": 5.0, "id": 3}, {"x": 7.6, "y": 9.4, "id": 4}, {"x": 13.0, "y": 10.3, "id": 5}, {"x": 1.9, "y": 4.6, "id": 6}],

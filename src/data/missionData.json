@@ -2,38 +2,53 @@
   "fields": [
     { "id": "missionId" },
     { "id": "missionName" },
-    { "id": "status" },
+    { "id": "typeOfEmployee" },
+    { "id": "amountNeeded" },
+    { "id": "amountLeftToAssigened" },
+    { "id": "timeLeft" },
     { "id": "startDate" },
     { "id": "endDate" }
   ],
   "records": [
     {
       "missionId": "1",
-      "missionName": "Collect the Crops",
-      "status": "Completed",
+      "missionName": "Deliver",
+      "typeOfEmployee": "Drivers",
+      "amountNeeded" : "3",
+      "amountLeftToAssigened" : "3",
+      "timeLeft": "2 Days",
       "startDate": "2024-01-01",
       "endDate": "2024-01-15"
     },
     {
       "missionId": "2",
-      "missionName": "Clean the Vegetables",
-      "status": "In Progress",
-      "startDate": "2024-02-01",
-      "endDate": null
+      "missionName": "Make the Food",
+      "typeOfEmployee": "Cookers",
+      "amountNeeded" : "15",
+      "amountLeftToAssigened" : "12",
+      "timeLeft": "5 Days",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-15"
     },
     {
       "missionId": "3",
-      "missionName": "Water the Plants",
-      "status": "Posponed",
-      "startDate": "2024-02-01",
-      "endDate": null
+      "missionName": "Packeres",
+      "typeOfEmployee": "any",
+      "amountNeeded" : "30",
+      "amountLeftToAssigened" : "25",
+      "timeLeft": "7 Days",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-15"
     },
     {
       "missionId": "4",
-      "missionName": "Answer the Phones",
-      "status": "In Progress",
-      "startDate": "2024-02-01",
-      "endDate": null
+      "missionName": "Runners",
+      "typeOfEmployee": "any",
+      "amountNeeded" : "20",
+      "amountLeftToAssigened" : "0",
+      "timeLeft": "25 Days",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-15"
     }
   ]
 }
